@@ -6,10 +6,10 @@ export const connectDatabase = async () => {
         uid: '',
         pid: '',
         cluster: '',
-        collection: '',
+        database: '',
     };
     const client = await MongoClient.connect(
-        `mongodb+srv://${db.uid}:${db.pid}@${db.cluster}/${db.collection}?retryWrites=true&w=majority`
+        `mongodb+srv://${db.uid}:${db.pid}@${db.cluster}/${db.database}?retryWrites=true&w=majority`
     );
     return client;
 };

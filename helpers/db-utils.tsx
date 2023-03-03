@@ -2,14 +2,8 @@ import { MongoClient } from 'mongodb';
 // import { SortDirection } from './../node_modules/mongodb/src/sort';
 
 export const connectDatabase = async () => {
-    const db = {
-        uid: '',
-        pid: '',
-        cluster: '',
-        database: '',
-    };
     const client = await MongoClient.connect(
-        `mongodb+srv://${db.uid}:${db.pid}@${db.cluster}/${db.database}?retryWrites=true&w=majority`
+        `mongodb+srv://${process.env.MONGODB_UID}:${process.env.MONGODB_PID}@${process.env.MONGODB_CLUSTER}/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`
     );
     return client;
 };
